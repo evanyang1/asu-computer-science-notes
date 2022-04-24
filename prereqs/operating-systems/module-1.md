@@ -36,3 +36,17 @@
 
 ## 1.3 Resident Monitor Efficiency, Issues and Enforcement
 
++ **Resident program** = a program that monitors all other programs. **System calls** to ask for permission.
++ Problems with this: reading input is expensive, and during that time, cpu is idle. writing output is also expensive. You don't want underutilization of CPU.
++ One solution is **buffering**, overlapping of computation and reading input (buffering) in parallel. In order to do this, need extra (different) memory, buffer memory. 
++ More complex resident monitor: buffer the next program (**spooling**). Need **spool disks** for this. So while buffering needs extra memory, spooling needs extra storage space. Also caching. 
++ Need bounds. One way to do so is hardware enforcement/protection. This is usage of user mode and kernel mode. One simple idea is to make the resident monitor kernel mode, and everything else user mode. But that isn't the exact solution.
++ To solve the second motivation, which is to make sure programs don't go on forever, we need to track time. A computer has a clock, a crystal oscillator that has very high frequency, maybe like 2.8 GigaHertz. Each time is a tick, and each tick is an interrupt. These interrupts are also called **hardware interrupts**.
++ Two types of interrupts: hardware interrupts and software interrupts. 
++ For software interrupts, you can have one tick does an increment variable `i`, 
+```
+if (i == 100) {
+  // call ISR2 which is written by an application developer, unlike ISR1
+}
+```
++ for example, switch programs every one microsecond
