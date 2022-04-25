@@ -50,3 +50,21 @@ if (i == 100) {
 }
 ```
 + for example, switch programs every one microsecond
+
+## 1.4 CPU and Memory Protection
+
+### CPU Protection
+
++ Two modes: user mode and kernel mode. Kernel mode: privileged instructions. Interrupts are privileged mode always; system calls generate interrupts and so are also privileged mode. 
++ How can a (user mode) program access input? It has to do the transition whilst the resident monitor knows. 
++ loading status register is a simple way to toggle mode bit (user to kernel)
++ **system call** = a function call to a privileged function that is part of the OS kernel
++ (for now, assume kernel is resident monitor, *for now*)
++ Switching must be done under supervision of resident monitor, otherwise what's the point of the mode bit if anyone can switch?
++ table of OS system calls
++ (remember system calls always call an interrupt(s))
++ basically a function like `printf()` in C calls another function, which calls another function which copies a system call code into a register. that register will have something like int 0x80 which is the code for an ISR. Code written there cannot be executed (only resident monitor can execute) (hardware enforcement). And only when the resident monitor intervenes, then can you switch to interrupt (i.e. 0x80).
++ This whole process is called **CPU protection**. In summary, it's two parts: 1. hardware enforcement 2. switch to kernel mode can only be done under the resident monitor's supervision.
+
+### Memory Protection
++ 
