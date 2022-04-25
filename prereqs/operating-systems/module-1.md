@@ -53,6 +53,8 @@ if (i == 100) {
 
 ## 1.4 CPU and Memory Protection
 
++ Both CPU and memory protection helps us achieve the two motivations for OS.
+
 ### CPU Protection
 
 + Two modes: user mode and kernel mode. Kernel mode: privileged instructions. Interrupts are privileged mode always; system calls generate interrupts and so are also privileged mode. 
@@ -67,4 +69,9 @@ if (i == 100) {
 + This whole process is called **CPU protection**. In summary, it's two parts: 1. hardware enforcement 2. switch to kernel mode can only be done under the resident monitor's supervision.
 
 ### Memory Protection
-+ 
++ Strategy 1: tell application A it can't write in resident monitor memory (*very application specific*)
++ Strategy 2: tell application A it can only write between a range (i.e. X and Y) (*used in practice generally* because our computer runs many programs in parallel)
++ Hardware protection: **Memory management unit (MMU)**
++ Check from address bus: is `base <= M <= base + bound` ?
++ Memory protection is *needed* for CPU protection. Vice versa is true, CPU protection is needed for memory protection.
++ Changing base or bound is a privileged instruction. 
