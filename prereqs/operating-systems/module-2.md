@@ -32,3 +32,15 @@
 + CPU schedule runs the process.
 + When a process is running, the program counter of CPU gets updated
 + What can happen to a process? 1. Ends. Goes to EXIT state and exits from system. 2. Wait for input/output. In this case, gets booted out from RUN state and goes into the WAIT state. Then when it gets the I/O it was waiting for, it cannot go directly back into the RUN state, must go back to READY state, where it awaits the CPU scheduler to pick it again. 3. Preemption (CPU scheduler stops the process and decides it's time for other processes to do their thing). The process goes back to WAIT state.
+
+## 2.2 Process Memory States (Context Switching)
+
++ Programs have two fixed parts – global data and code. Both global data and code need memory.
++ Stack - for function frames that is helpful for invoking functions and storing local variables, stack pointers, instruction pointers etc
++ Heap - dynamic memory allocation
++ Global data is static; both global data and code have fixed memory. Stack and heap are dynamic for memory
++ Fixed amount of memory allocated for both stack and heap. If more memory is needed, need system call to ask for more.
++ There needs to be demarcation of where stack ends & heap starts. -> Stack and heap pointers.
++ Program counter stores address of next instruction. Stored in instruction register, or EIP.
++ EBP/Base register stores the base (from base and bound, memory protection)
++ While we switch processes, we can't lose the values of the process (i.e. base, program counter). Solution: **process control block**. One PCB per process. PCB stored in kernel.
