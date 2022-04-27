@@ -70,3 +70,15 @@
 + **response time** = amount of time from submission to its first running 
 + **throughput** = # processes completed per time unit
 + **service time** = The amount of CPU time that a process will need before it either finishes or voluntarily exits the CPU, such as to wait for input / output.
+
+## 2.5 Preemptive Scheduling
+
++ **time quanta**
+
+## 2.6 Comparing Scheduling Algorithms
+
++ scheduling algorithm = deterministic set of steps that decide which process to take from Ready queue & take to Run queue
++ FIFO
++ Shortest job first (BEST with respect to Turnaround time)
++ However shortest job first isn't practical. Also SJF suffers from **starvation of large jobs**. You can deal with this via **aging** (setting/usage of priorities)
++ **Optimality** = how good an algorithm is compared to SJF. (Turnaround time for algorithm)/(Turnaround time for SJF) >= 1
