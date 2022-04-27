@@ -44,3 +44,19 @@
 + Program counter stores address of next instruction. Stored in instruction register, or EIP.
 + EBP/Base register stores the base (from base and bound, memory protection)
 + While we switch processes, we can't lose the values of the process (i.e. base, program counter). Solution: **process control block**. One PCB per process. PCB stored in kernel.
++ PCB contains memory image (data, code, stack, heap), CPU registers (PC, stack pointer), OS info about process (process id, priority, ...)
++ PCB can't be stored in RAM where it can be written by other programs.
++ context switch is nothing but an interrupt. Use interrupt to track time, then when the specified time is hit, invoke context switch interrupt routine.
++ context switch manipulates stack pointer in order for the instruction pointer to point at the address of the new process 
+
+## 2.3: CPU Scheduling (Non-Preemptive Scheduling)
+
++ **Scheduling queues**
++ There's only a single process in the RUN queue. Whereas can be >1 in other queues like the I/O wait queues.
++ Upon exit, a process needs to free up unused memory, and clean up the stack.
++ Non preemptive scheduler: Rarely used in general purpose computing systems but used in embedded system and other smaller different types of computing systems. CPU cannot stop a process while it's running. 
++ Preemptive scheduler: CPU can stop a process while it's running.
++ **burst** = collection of CPU cycles. **I/O burst** = time doing I/O. A process consists of CPU and I/O bursts. A process always starts and ends with a CPU burst.
++ During I/O burst, CPU is idle. We can run other processes.
++ **CPU Bound Process** = when a process spends more time doing CPU bursts than I/O bursts (**I/O Bound Process** vice versa)
++ CPU scheduling algorithms: First in first out (FIFO): two inefficiencies (system idle time and process wait time)
