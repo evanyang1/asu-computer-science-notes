@@ -60,3 +60,13 @@
 + During I/O burst, CPU is idle. We can run other processes.
 + **CPU Bound Process** = when a process spends more time doing CPU bursts than I/O bursts (**I/O Bound Process** vice versa)
 + CPU scheduling algorithms: First in first out (FIFO): two inefficiencies (system idle time and process wait time)
+
+## 2.4 CPU Scheduling Metrics
+
++ **CPU Utilization** = % time CPU not idle = (total time - idle time)/total time, total time also called **makespan**
++ **Turnaround Time** = average time for a program or process to finish (including call delays). want this low
++ we compare cpu scheduling algorithms based on average turnaround time
++ **waiting time** = amount of time a process waits in waiting queue (want this low)
++ **response time** = amount of time from submission to its first running 
++ **throughput** = # processes completed per time unit
++ **service time** = The amount of CPU time that a process will need before it either finishes or voluntarily exits the CPU, such as to wait for input / output.
