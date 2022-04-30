@@ -78,3 +78,7 @@ else goto (beginning of P(s))
 + When semaphores are used for mutual exclution -> **mutex semaphore**
 + You can also use semaphores for process synchronization. Like if you want T3 can only execute after T1 and T2, then use two semaphores, init to 1.
 + Careful, nested semaphores can result in **deadlock**.
++ semaphores can be used for speed control.
+
+### Producer Consumer
+
