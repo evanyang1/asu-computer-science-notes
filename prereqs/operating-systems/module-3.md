@@ -41,4 +41,15 @@ int testAndSet(&x) {
 ```
 + **atomic** = during the execution of these lines of code, can't context switch
 + `while ( testAndSet(x) == 1)` solves critical section problem.
- 
++ **busy wait**
++ **spin-lock** - hardware support
+```
+test_and_set:
+movl 4(%esp), %eax
+movl 8(%esp), %edx
+xchgl %eax, (%edx)
+ret
+```
++ advisory for Test_and_test: only for small and non conflicting critical sections, and only for uniprocessor systems.
+
+### Semaphores
