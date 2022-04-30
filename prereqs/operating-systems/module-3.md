@@ -30,3 +30,15 @@ store R1 -> x
 + One solution is stop context switching, disable interrupts (Used in practice)
 + There's a system call that says, disable all system interrupts
 + Only works for uniprocessor system
++ interrupt disabling must be a privileged intruction. This is a very dangerous operation. Every keyboard stroke, every mouseclick triggers an interrupt. You don't want your entire system to be unresponsive. Interrupt disabling code must be a very short segment of code. And this doesn't work for multi-processor system.
++ Multicore systems use atomic instructions. Test and set (discussed in this course), compare and swap (not discussed in this course), exchange (an implementation of test and set, used by Intel processors)
+```
+int testAndSet(&x) {
+  temp = *x;
+  *x = 1;
+  return (temp);
+}
+```
++ **atomic** = during the execution of these lines of code, can't context switch
++ `while ( testAndSet(x) == 1)` solves critical section problem.
+ 
