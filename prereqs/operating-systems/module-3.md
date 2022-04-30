@@ -53,3 +53,28 @@ ret
 + advisory for Test_and_test: only for small and non conflicting critical sections, and only for uniprocessor systems.
 
 ### Semaphores
+
++ **Semaphores** (also called **monitors**): they are a data type, init value 0 or 1; 2 operations (P or V)
+```
+struct Semaphore {
+  int value; // data
+  function init(int x) {
+    value = x;
+  }
+  function P(s){}
+  function V(s){}
+}
+```
++ P(s):
+```
+if (S > 0) S--;
+else goto (beginning of P(s))
+// all this in atomic fashion
+```
++ from above, if S == 0, it keeps blocking itself
++ V(s): `S++` in atomic way
++ P(s) is lock, V(s) is unlock
++ Semaphores easily solve mutex/critical section problem:: Init(S,1). Process 1: P(s), critical section, V(s). Process2: P(S), crit section, V(S).
++ When semaphores are used for mutual exclution -> **mutex semaphore**
++ You can also use semaphores for process synchronization. Like if you want T3 can only execute after T1 and T2, then use two semaphores, init to 1.
++ Careful, nested semaphores can result in **deadlock**.
