@@ -20,4 +20,5 @@ One way is to reduce program size. It reduces need to migrate. Might even finish
 
 ## 4.3 Paging
 
-+ **Paging** - a memory management scheme that eliminates the need for contiguous allocation of physical memory. Permits the physical address space of a process to be non-contiguous.
++ **Paging** - a memory management scheme that eliminates the need for contiguous allocation of physical memory. Permits the physical address space of a process to be non-contiguous. Divide memory into fixed sized **frames**. Set a frame size, S.
++ at least S numbers to devote to S lines. log<sub>2</sub> S number of bits
