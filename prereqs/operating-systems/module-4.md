@@ -13,3 +13,11 @@ Contiguous memory allocation: no gaps, unless we're talking about unused memory 
 **Compaction**: a method to reclaim holes. Migrate processes from one memory location to another. This involves moving code: stack pointers, calling addresses, instruction pointers, heap contents. Remember that converting code to executable has many steps: compiling, dealing with tags and functions and linking, loading. This is so time inefficient! Potential recompile and restart of program.
 ###### Policies to improve efficiency
 One way is to reduce program size. It reduces need to migrate. Might even finish before considering migrating the code. Even if you do need to migrate, fewer changes needed.
++ Dynamic linking & loading - do them on demand instead of at start of the program
++ Overlays - we fragment the program. Load one fragment at a time. Overlay the next fragment over the current one. Advantage: low program size. Disadvantage: Fragment swapping is expensive. What if the program switches between fragments? Also for loops are problematic, you might need two fragments at once but you can't -> infinite cycle.
++ Swapping - put program P1 onto hard disk, replace with P2
++ Memory Allocation Protocol - first fit, best fit, worst fit, etc... and hope for the best. But can't prove which one of the three works best in a given scenario.
+
+## 4.3 Paging
+
++ **Paging** - a memory management scheme that eliminates the need for contiguous allocation of physical memory. Permits the physical address space of a process to be non-contiguous.
