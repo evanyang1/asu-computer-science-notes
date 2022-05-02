@@ -124,3 +124,8 @@ Philosopher (i)
 + Solve by not doing hold & wait. Or don't do circular wait
 + Or if you don't get a right chopstick (for example), just let it go. Don't wait for the left (h&w)
 + Or have an extra chopstick
+
+## 3.2 Concurrent Programming Algorithms
+
+### Mutual Exclusion Critical Selection
+
