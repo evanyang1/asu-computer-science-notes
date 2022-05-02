@@ -10,4 +10,6 @@ Contiguous memory allocation: no gaps, unless we're talking about unused memory 
 
 ## 4.2 Solutions to Fragmentation
 
-**Compaction**: a method to reclaim holes. Migrate processes from one memory location to another. This involves moving code: stack pointers, calling addresses, instruction pointers, heap contents. Remember that converting code to executable has many steps: compiling, dealing with tags and functions and linking, loading.
+**Compaction**: a method to reclaim holes. Migrate processes from one memory location to another. This involves moving code: stack pointers, calling addresses, instruction pointers, heap contents. Remember that converting code to executable has many steps: compiling, dealing with tags and functions and linking, loading. This is so time inefficient! Potential recompile and restart of program.
+###### Policies to improve efficiency
+One way is to reduce program size. It reduces need to migrate. Might even finish before considering migrating the code. Even if you do need to migrate, fewer changes needed.
