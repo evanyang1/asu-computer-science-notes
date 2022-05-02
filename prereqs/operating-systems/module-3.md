@@ -108,3 +108,19 @@ in++
 V(mutex)
 V(full)
 ```
+
+### Dining Philosophers Problem
+
+```
+sem ch[5] = 1; // array of semaphores
+Philosopher (i)
+  loop
+    THINK
+    P(ch[i]); P(ch[i + 1] % 5); // right and left chopsticks, respectively
+    EAT
+    V(ch[i]); V(ch[i + 1] % 5);
+```
++ Deadlock due to hold & wait, and circular wait
++ Solve by not doing hold & wait. Or don't do circular wait
++ Or if you don't get a right chopstick (for example), just let it go. Don't wait for the left (h&w)
++ Or have an extra chopstick
