@@ -22,3 +22,11 @@ One way is to reduce program size. It reduces need to migrate. Might even finish
 
 + **Paging** - a memory management scheme that eliminates the need for contiguous allocation of physical memory. Permits the physical address space of a process to be non-contiguous. Divide memory into fixed sized **frames**. Set a frame size, S.
 + at least S numbers to devote to S lines. log<sub>2</sub> S number of bits
++ line number log<sub>2</sub> S, frame number 32 - log<sub>2</sub> S
++ (RAM is also called physical memory)
++ Program is divided into **pages**, page size set to be equal to frame size.
++ Last page will never be full -> unused memory. Still called internal fragmentation.
++ Then allocate page to frame.
+1. No need for order
+2. No need for contiguous allocation.
++ To make sure execution is correct, we have frame number + line number (aka offset).
