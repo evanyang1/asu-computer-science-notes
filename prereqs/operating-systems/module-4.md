@@ -30,3 +30,11 @@ One way is to reduce program size. It reduces need to migrate. Might even finish
 1. No need for order
 2. No need for contiguous allocation.
 + To make sure execution is correct, we have frame number + line number (aka offset).
++ Relative address: for each page, the relative address resets
++ Given a line number, page number = (line number)/(page size = frame size) integer division, line number = offset = (line number) % (page size)
++ The MMU (Memory Management Unit) uses a **page table** to convert logical addresss to physical address
++ each entry in the table called a **page table entry (PTE)**. Maps logical page number to physical frame number
++ **frame sharing** - processes can share frames. good because more processes with smaller memory.
++ Page table stored in kernel memory (RAM)
++ Disadvantages: paging is twice the time because gotta access page table. paging time = (time to access page table) + (time to access physical address)
++ *solution* - decrease time to access page table. We can do this by using a **Translation Lookaside Buffer (TLB) Cache** 
