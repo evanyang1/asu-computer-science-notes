@@ -37,4 +37,6 @@ One way is to reduce program size. It reduces need to migrate. Might even finish
 + **frame sharing** - processes can share frames. good because more processes with smaller memory.
 + Page table stored in kernel memory (RAM)
 + Disadvantages: paging is twice the time because gotta access page table. paging time = (time to access page table) + (time to access physical address)
-+ *solution* - decrease time to access page table. We can do this by using a **Translation Lookaside Buffer (TLB) Cache** 
++ *solution* - decrease time to access page table. We can do this by using a **Translation Lookaside Buffer (TLB) Cache** -> Makes time to access table almost zero!
++ However because each process has its own page table and 100s of processes means a bunch of tables, we can't put them all in the cache, which is really small! TLB Cache miss => 3 memory accesses aka worse than the original paging scheme.
++ **Hit ratio** = (# cache hits)/(# cache queries)
