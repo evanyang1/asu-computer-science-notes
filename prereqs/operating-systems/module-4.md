@@ -40,3 +40,11 @@ One way is to reduce program size. It reduces need to migrate. Might even finish
 + *solution* - decrease time to access page table. We can do this by using a **Translation Lookaside Buffer (TLB) Cache** -> Makes time to access table almost zero!
 + However because each process has its own page table and 100s of processes means a bunch of tables, we can't put them all in the cache, which is really small! TLB Cache miss => 3 memory accesses aka worse than the original paging scheme.
 + **Hit ratio** = (# cache hits)/(# cache queries)
+
+## 4.4 Demand Paging and Segmented Paging
+
+Demand paging is a type of swapping done in virtual memory systems. In demand paging, the data is not copied from the disk to the RAM until they are needed or being demanded by some program. Basically don't need pages in RAM. Pages are in other storage systems, like hard drive or disk. The data will not be copied when the data is already available on the memory.
+
+Pure segmentation is not very popular and not being used in many of the operating systems. However, Segmentation can be combined with Paging to get the best features out of both the techniques. In Segmented Paging, the main memory is divided into variable size segments which are further divided into fixed size pages.
+
++ **Page fault** - interrupt when MMU doesn't find page table in RAM. Page fault handler then goes looking for it in disk, then puts it in a free memory space in the RAM, then updates page table, page table entry, (maybe) the TLB cache.
