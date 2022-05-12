@@ -129,3 +129,38 @@ Philosopher (i)
 
 ### Mutual Exclusion Critical Selection
 
++ Entry and exit functions must be the same for both threads, though it can be parametrized.
++ (Progress Property) If a thread wants to enter a critical section and another thread is executing non-critical section code, the 1st thread *must* be allowed to enter.
++ (Bounded Waiting) If T1 wants to enter a critical section and T2 is in a critical section, then we must guarantee that T1 will enter after T2 re-enters at most max # of times
+```
+turn = 0
+// T1
+while (turn != 0); // END LOOP
+turn = 1;
+critical section(CS);
+turn = 0;
+
+// T2
+while (turn != 0); // END LOOP
+turn = 1;
+critical section(CS);
+turn = 0;
+```
++ Problem: what if T1 and T2 comes in at the same time?
++ While loop has a name, **busy waiting**.
+```
+// Second sol'n
+
+turn = 0;
+
+// T1
+while (turn == 1);
+C.S.
+turn = 1;
+
+// T2
+while (turn == 0);
+C.S.
+turn = 0;
+```
++ Problem: doesn't satisfy Progress property.
