@@ -164,3 +164,19 @@ C.S.
 turn = 0;
 ```
 + Problem: doesn't satisfy Progress property.
++ Solution with two bowls:
+```
+flags[2];
+
+// T1
+flags[0] = 1;
+while(flags[1] == 1);
+C.S.
+flags[0] = 0;
+
+// T2
+flags[1] = 1;
+while(flags[0] == 1);
+C.S.
+flags[1] = 0;
+```
