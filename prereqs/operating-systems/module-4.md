@@ -48,3 +48,4 @@ Demand paging is a type of swapping done in virtual memory systems. In demand pa
 Pure segmentation is not very popular and not being used in many of the operating systems. However, Segmentation can be combined with Paging to get the best features out of both the techniques. In Segmented Paging, the main memory is divided into variable size segments which are further divided into fixed size pages.
 
 + **Page fault** - interrupt when MMU doesn't find page table in RAM. Page fault handler then goes looking for it in disk, then puts it in a free memory space in the RAM, then updates page table, page table entry, (maybe) the TLB cache.
++ Problem: page fault operation is expensive (time) b/c it access hard disk.
