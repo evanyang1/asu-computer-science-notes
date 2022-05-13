@@ -51,3 +51,12 @@ Pure segmentation is not very popular and not being used in many of the operatin
 + Problem: page fault operation is expensive (time) b/c it access hard disk.
 + However we don't really see the worst case scenario (getting all 2^22 pages from hard drive) because of **program locality**: If a page is being used, then the likelihood of using that page again is very high. The most frequently used pages are very small in number. And two successive lines of code can occur in the same page with high probability. (Or two successive page requests may be the same). Often true with for loops and such. **working set** = set of pages that are run over and over again.
 + **page replacement**: demand paging can be improved with page replacement. Use more memory than you have physically.
++ Page replacement algorithms can make mistakes -- replace pages in working set. And actually with replacement, the number of page faults increase slightly. Yet this whole thing is a good thing.
++ Lazy: 20% free -- less frequent page replacements, but each of them take longer
++ Eager: 80% free -- more frequent page replacement, but they're faster
++ The checking for memory happens at certain time periods. That's why you don't need to worry about external fragmentation. Between these checks, maybe memory becomes full.
++ High (low) threshold also called high (low) watermark
+
+## 4.5 Page Replacements
+
+++ FIFO
