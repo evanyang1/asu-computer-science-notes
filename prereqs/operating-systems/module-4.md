@@ -49,3 +49,4 @@ Pure segmentation is not very popular and not being used in many of the operatin
 
 + **Page fault** - interrupt when MMU doesn't find page table in RAM. Page fault handler then goes looking for it in disk, then puts it in a free memory space in the RAM, then updates page table, page table entry, (maybe) the TLB cache.
 + Problem: page fault operation is expensive (time) b/c it access hard disk.
++ However we don't really see the worst case scenario (getting all 2^22 pages from hard drive) because of **program locality**: If a page is being used, then the likelihood of using that page again is very high. The most frequently used pages are very small in number. And two successive lines of code can occur in the same page with high probability. (Or two successive page requests may be the same). Often true with for loops and such.
