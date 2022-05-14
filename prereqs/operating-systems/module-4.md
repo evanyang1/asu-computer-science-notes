@@ -71,3 +71,11 @@ Pure segmentation is not very popular and not being used in many of the operatin
 + set valid bit to 1 when page is accessed.
 + Go thru all pages, whichever page have R/valid bit 0 are candidates for replacement. Whichever page has R/valid bit 1, set V and R to 0, and not replace.
 + Repeat.
+
+### R Bit Based Algorithm
+
++ Go thru all the pages, push r bit onto register. Push onto most significant bit
++ Calculate numbers based on registers. 
++ Sort page based on ascending order of the numbers
++ Replace top K pages.
++ If count is high, means recently used -> don't replace it. If low, then replace
