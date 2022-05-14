@@ -59,4 +59,8 @@ Pure segmentation is not very popular and not being used in many of the operatin
 
 ## 4.5 Page Replacements
 
-++ FIFO
++ FIFO
++ Belady's Anomaly
++ Best page replacement algorithm: Farthest in the future, but you don't know the future.
++ Alternate algorithms: Reverse version of farthest in future, namely least recently used. But even that is theoretical so two approximations to that: Second chance replacement (SCR), and R bit base replacement.
++ More discussion on logical addresses + page table entry is needed. The page table entry has frame # and a number of bits: R, N, X, V. V = 0 means page is not in memory; V = 1 means page is in memory. R bit is used in LRU approximations.  
