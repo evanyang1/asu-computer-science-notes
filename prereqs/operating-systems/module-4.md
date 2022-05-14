@@ -64,3 +64,10 @@ Pure segmentation is not very popular and not being used in many of the operatin
 + Best page replacement algorithm: Farthest in the future, but you don't know the future.
 + Alternate algorithms: Reverse version of farthest in future, namely least recently used. But even that is theoretical so two approximations to that: Second chance replacement (SCR), and R bit base replacement.
 + More discussion on logical addresses + page table entry is needed. The page table entry has frame # and a number of bits: R, N, X, V. V = 0 means page is not in memory; V = 1 means page is in memory. R bit is used in LRU approximations.  
+
+### Second Chance Replacement
+
++ Initially all valid bits set to 0. 
++ set valid bit to 1 when page is accessed.
++ Go thru all pages, whichever page have R/valid bit 0 are candidates for replacement. Whichever page has R/valid bit 1, set V and R to 0, and not replace.
++ Repeat.
