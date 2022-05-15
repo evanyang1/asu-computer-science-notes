@@ -180,3 +180,7 @@ while(flags[0] == 1);
 C.S.
 flags[1] = 0;
 ```
+
+### Solutions
+
++ Dekker's Algorithm satisfies all three properties, for two processes.
