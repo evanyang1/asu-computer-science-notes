@@ -184,3 +184,32 @@ flags[1] = 0;
 ### Solutions
 
 + Dekker's Algorithm satisfies all three properties, for two processes.
+```
+// P1
+flag[0] = 1;
+while (flag[1] == 1) {
+  if (turn != 0) {
+    flag[0] = 0;
+    while (turn != 0) {}
+    flag[0] = 1;
+  }
+}
+// critical section
+turn = 1;
+flag[0] = 0;
+// remainder section
+
+// P2
+flag[1] = 1;
+while (flag[0] == 1) {
+  if (turn != 1) {
+    flag[1] = 0;
+    while (turn != 1) {}
+    flag[1] = 1;
+  }
+}
+// critical section
+turn = 0;
+flag[1] = 0;
+// remainder section
+```
