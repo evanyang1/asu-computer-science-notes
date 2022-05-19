@@ -216,3 +216,26 @@ flag[1] = 0;
 // remainder section
 ```
 + all indices are thread id's, as well as turn values
+
+### Peterson Algorithm
+
+```
+flag[2] = {0, 0};
+turn = any (let's say 0);
+
+// P0
+flag[0] = 1;
+turn = 1;
+while (flag[1] == 1 && turn == 1)
+  ;
+// CS
+flag[0] = 0;
+
+// P1
+flag[1] = 1;
+turn = 0;
+while (flag[0] == 1 && turn == 0)
+  ;
+// CS
+flag[1] = 0;
+```
