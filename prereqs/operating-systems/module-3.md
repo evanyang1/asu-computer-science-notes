@@ -183,7 +183,7 @@ flags[1] = 0;
 
 ### Solutions
 
-+ Dekker's Algorithm satisfies all three properties, for two processes.
++ Dekker's Algorithm satisfies all three properties, for two processes. (1965)
 ```
 flag[2] = {0, 0};
 turn = 0; // turn can be initialized to be anything
@@ -217,7 +217,7 @@ flag[1] = 0;
 ```
 + all indices are thread id's, as well as turn values
 
-### Peterson Algorithm
+### Peterson Algorithm (1981)
 
 ```
 flag[2] = {0, 0};
@@ -239,3 +239,8 @@ while (flag[0] == 1 && turn == 0)
 // CS
 flag[1] = 0;
 ```
++ beauty of this solution, is it uses race condition to solve race condition (r.c. occurs at turn = 1; and turn = 0;)
+
++ ***
+
++ N processes -> use Lamport's Bakery Algorithm
