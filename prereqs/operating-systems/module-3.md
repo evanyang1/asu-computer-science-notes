@@ -241,6 +241,15 @@ flag[1] = 0;
 ```
 + beauty of this solution, is it uses race condition to solve race condition (r.c. occurs at turn = 1; and turn = 0;)
 
-+ ***
+### Lamport's Bakery Algorithm
 
 + N processes -> use Lamport's Bakery Algorithm
++ Let's define:
+```
+int num[N]; // N > 0, N: number of processes
+
+(num[j], j) < (num[i], i)
+if (num[j] < num[i]) return true
+if equal then if j < i return true
+else return false
+```
