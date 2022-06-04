@@ -17,3 +17,9 @@ We let S be a set of all symbols in an alphabet, then S* := set of all strings i
 + dot: concatenation of strings (combine each string from each set)
 + Two sets A and B: A.B != B.A
 + Operators precedence: . has precedence over |
+
+## 1.4 Kleene Star
+
+https://en.wikipedia.org/wiki/Kleene_star
+Let L(R) be the language R, L(R*) be the Kleene star. L(0) = {empty string}, L^{i}(R) := L^{i - 1}(R).L(R), L(R*) = Union_{i >= 0} L^{i}(R)
++ Kleene star * operator has higher precedence over |. But () has higher precedence than *
