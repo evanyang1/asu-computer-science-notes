@@ -1,1 +1,3 @@
-# asu-computer-science-notes
+# MSCS Prerequisite Notes
+
+Covers operating systems and programming languages.
